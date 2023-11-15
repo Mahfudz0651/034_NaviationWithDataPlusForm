@@ -118,6 +118,16 @@ fun EsJumboApp(
             }
         }
     }
+    Scaffold {innerPadding ->
+        val uiState by viewModel.stateUI.collectAsState()
+        NavHost(
+            navController = navController,
+            startDestination = PengelolaHalaman.Formulir.name,
+            modifier = Modifier.padding(innerPadding))
+        {
+
+        }
+    }
 }
 
 private fun cancelOrderAndNavigateToHome(
