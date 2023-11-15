@@ -95,7 +95,7 @@ fun EsJumboApp(
                 HalamanForm(
                     onSubmitButtonClicked = {
                         viewModel.setContact(it)
-                        navController.navigate(PengelolaHalaman.Detail.name)
+                        navController.navigate(PengelolaHalaman.Rasa.name)
                     })
             }
             composable(route = PengelolaHalaman.Rasa.name) {
