@@ -32,6 +32,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 enum class PengelolaHalaman {
     Home,
+    Formulir,
     Rasa,
     Summary
 }
@@ -92,6 +93,7 @@ fun EsJumboApp(
                         navController.navigate(PengelolaHalaman.Rasa.name) })
             }
             composable(route = PengelolaHalaman.Rasa.name) {
+
                 val context = LocalContext.current
                 HalamanSatu(
                     pilihanRasa = flavors.map { id ->
@@ -120,6 +122,7 @@ fun EsJumboApp(
         }
     }
 }
+
 private fun cancelOrderAndNavigateToHome(
     viewModel: OrderViewModel,
     navController: NavHostController
