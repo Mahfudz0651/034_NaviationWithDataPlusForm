@@ -69,7 +69,7 @@ fun EsJumboApp(
     viewModel: OrderViewModel = viewModel(),
     navController: NavHostController = rememberNavController()
 ) {
-    Scaffold (
+    Scaffold(
         topBar = {
             EsJumboAppBar(
                 bisaNavigasiBack = false,
@@ -77,7 +77,7 @@ fun EsJumboApp(
                 }
             )
         }
-    ){innerPadding ->
+    ) { innerPadding ->
         val uiState by viewModel.stateUI.collectAsState()
         NavHost(
             navController = navController,
@@ -88,7 +88,15 @@ fun EsJumboApp(
             composable(route = PengelolaHalaman.Home.name) {
                 HalamanHome(
                     onNextButtonCliked = {
-                        navController.navigate(PengelolaHalaman.Rasa.name) })
+                        navController.navigate(PengelolaHalaman.Rasa.name)
+                    })
+            }
+            composable(PengelolaHalaman.Formulir.name) {
+                HalamanForm(
+                    onSubmitButtonClicked = {
+                        viewModel.setContact(it)
+                        navController.navigate(PengelolaHalaman.Detail.name)
+                    })
             }
             composable(route = PengelolaHalaman.Rasa.name) {
 
@@ -97,9 +105,10 @@ fun EsJumboApp(
                     pilihanRasa = flavors.map { id ->
                         context.resources.getString(id)
                     },
-                    onSelectionChanged = {viewModel.setRasa(it) },
+                    onSelectionChanged = { viewModel.setRasa(it) },
                     onConfirmButtonCliked = {
-                        viewModel.setJumlah(it)},
+                        viewModel.setJumlah(it)
+                    },
                     onNextButtonClicked = {
                         navController.navigate(PengelolaHalaman.Summary.name)
                     },
@@ -108,34 +117,20 @@ fun EsJumboApp(
                             viewModel,
                             navController
                         )
-                    } )
+                    })
             }
             composable(route = PengelolaHalaman.Summary.name) {
                 HalamanDua(
                     orderUIState = uiState,
                     onCancelButtonClicked = {
-                        cancelOrderAndNavigateToRasa(navController) },
-                    )
-            }
-        }
-    }
-    Scaffold {innerPadding ->
-        val uiState by viewModel.stateUI.collectAsState()
-        NavHost(
-            navController = navController,
-            startDestination = PengelolaHalaman.Formulir.name,
-            modifier = Modifier.padding(innerPadding))
-        {
-            composable(PengelolaHalaman.Formulir.name){
-                HalamanForm(
-                    onSubmitButtonClicked = {
-                    viewModel.setContact(it)
-                    navController.navigate(PengelolaHalaman.Detail.name)
-                }
+                        cancelOrderAndNavigateToRasa(navController)
+                    },
                 )
             }
         }
     }
+
+
 }
 
 private fun cancelOrderAndNavigateToHome(
