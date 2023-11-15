@@ -1,4 +1,4 @@
-package com.example.esjumboapp.ui.theme
+package com.example.esjumboapp
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -26,7 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.esjumboapp.R
+import com.example.esjumboapp.ui.theme.EsJumboAppTheme
 
 @Composable
 fun HalamanHome (

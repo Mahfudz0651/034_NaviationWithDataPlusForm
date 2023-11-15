@@ -1,4 +1,4 @@
-package com.example.esjumboapp.ui.theme
+package com.example.esjumboapp
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

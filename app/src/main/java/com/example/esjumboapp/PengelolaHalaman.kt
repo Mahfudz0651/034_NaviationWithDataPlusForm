@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.example.esjumboapp.ui.theme
+package com.example.esjumboapp
 
 import Data.SumberData.flavors
 import androidx.compose.foundation.layout.padding
@@ -20,13 +20,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.lifecycle.ViewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.esjumboapp.R
 import theme.OrderViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -128,13 +125,15 @@ private fun cancelOrderAndNavigateToHome(
     navController: NavHostController
 ) {
     viewModel.resetOrder()
-    navController.popBackStack(PengelolaHalaman.Home.name, inclusive
+    navController.popBackStack(
+        PengelolaHalaman.Home.name, inclusive
     = false)
 }
 private fun cancelOrderAndNavigateToRasa(
     navController: NavHostController
 ) {
-    navController.popBackStack(PengelolaHalaman.Rasa.name, inclusive
+    navController.popBackStack(
+        PengelolaHalaman.Rasa.name, inclusive
     = false)
 }
 
