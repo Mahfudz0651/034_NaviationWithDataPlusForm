@@ -31,7 +31,8 @@ enum class PengelolaHalaman {
     Home,
     Formulir,
     Rasa,
-    Summary
+    Summary,
+    Detail
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -125,7 +126,14 @@ fun EsJumboApp(
             startDestination = PengelolaHalaman.Formulir.name,
             modifier = Modifier.padding(innerPadding))
         {
-
+            composable(PengelolaHalaman.Formulir.name){
+                HalamanForm(
+                    onSubmitButtonClicked = {
+                    viewModel.setContact(it)
+                    navController.navigate(PengelolaHalaman.Detail.name)
+                }
+                )
+            }
         }
     }
 }
